@@ -6,6 +6,10 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\ModelController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function (){
+    return redirect()->route('admin.login');
+});
+
 Route::prefix('admin')->group( function (){
     Route::get('login', [AdminController::class, 'login'])->name('admin.login');
     Route::post('login', [AdminController::class, 'signin'])->name('admin.signin');
